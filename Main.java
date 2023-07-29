@@ -153,11 +153,51 @@ public class Main {
         return true;
     }
 
+    public interface IntegerBiFunction {
+        Integer apply(Integer p1, Integer p2);
+    }
+
+    public static class IData {
+        private Integer[] iValues;
+        public IData(Integer[] p) {
+            iValues = p;
+        }
+        public Integer doIt(IntegerBiFunction ibf) {
+            Integer lastApply = null;
+            for(Integer value: iValues) {
+                if(value != null) {
+                    lastApply = ibf.apply(value,lastApply);
+                }
+            }
+            return lastApply;
+        }
+    }
+
+    public static void IDataLambda(IData d) {
+        System.out.println(d.doIt((x, y) -> {
+            if (x != null) {
+                return y == null ? 1 : y + 1;
+            }
+            return null;
+        }));
+
+        System.out.println(d.doIt((x, y) -> x));
+
+        System.out.println(d.doIt((x, y) -> {
+            if(y == null) return x;
+            if(x > y) return x;
+            return y;
+        }));
+    }
+
 
     public static void main(String[] args) {
         IntNumbers intNumbers = new IntNumbers(new int[]{1,2,3,4,5}, new int[]{6,7,8,9,0});
         Iterator<Integer> it = intNumbers.iterator();
-        while (it.hasNext()) System.out.println(it.next());
+        //while (it.hasNext()) System.out.println(it.next());
+
+        IData iData = new IData(new Integer[]{1,2,26,4,5,6,7,10});
+        IDataLambda(iData);
     }
 
 }
