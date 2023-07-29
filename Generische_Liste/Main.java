@@ -11,7 +11,7 @@ public class Main {
         dll.add(3);
         dll.add(4);
         dll.add(9);
-        System.out.println(dll.splitBehind(3));
+        System.out.println(dll.splitBehind(9));
         dll.showAll();
         /*System.out.println(dll.splitBehind(3));
         dll.showAll();

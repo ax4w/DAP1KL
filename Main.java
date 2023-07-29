@@ -208,6 +208,16 @@ public class Main {
         }
     }
 
+    public static boolean hasTriple(int[] arr, int n) {
+        if(n < 0 || n >= arr.length) return false;
+        else{
+            if(n < 2) return false;
+            boolean a = arr[n] == arr[n-1];
+            boolean b = arr[n] == arr[n-2];
+            return (a && b) || hasTriple(arr,n-1);
+        }
+    }
+
 
     public static void main(String[] args) {
         IntNumbers intNumbers = new IntNumbers(new int[]{1,2,3,4,5}, new int[]{6,7,8,9,0});
@@ -227,6 +237,9 @@ public class Main {
         Storage storage = new Storage(new Ints[]{ new Ints(new int[]{1,2,3,5}), new Ints(new int[]{1,2,3,4})});
         System.out.println(storage.allAround(5));
         System.out.println(storage.contains(1));
+        System.out.println("---");
+        int[] i = new int[]{2};
+        System.out.println(hasTriple(i, i.length - 1));
         //IDataLambda(iData);
     }
 
