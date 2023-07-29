@@ -1,5 +1,7 @@
 package Klausur;
 
+import java.util.Arrays;
+
 public class Main {
 
 
@@ -190,6 +192,22 @@ public class Main {
         }));
     }
 
+    public static void compress(Object[] arr) {
+        int positionNextNull = 0, positionNextObject = 0;
+        while (positionNextNull < arr.length && positionNextObject < arr.length) {
+            if(arr[positionNextNull] != null) positionNextNull++;
+            else{
+                positionNextObject = positionNextNull;
+                while (positionNextObject < arr.length && arr[positionNextObject] == null) {
+                    positionNextObject++;
+                }
+                if(positionNextObject >= arr.length) return;
+                arr[positionNextNull] = arr[positionNextObject];
+                arr[positionNextObject] = null;
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
         IntNumbers intNumbers = new IntNumbers(new int[]{1,2,3,4,5}, new int[]{6,7,8,9,0});
@@ -197,7 +215,10 @@ public class Main {
         //while (it.hasNext()) System.out.println(it.next());
 
         IData iData = new IData(new Integer[]{1,2,26,4,5,6,7,10});
-        IDataLambda(iData);
+        Object[] a = new Object[]{null,null,null,null,null,null,null,null,null,null,null};
+        compress(a);
+        System.out.println(Arrays.toString(a));
+        //IDataLambda(iData);
     }
 
 }
