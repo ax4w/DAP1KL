@@ -358,8 +358,11 @@ public class DoublyLinkedList<T>
                 current = current.getSucc();
                 newSize++;
             }
+
             else{
+                newSize++;
                 current.disconnectSucc();
+                last = current;
                 int r = this.size - newSize;
                 this.size = newSize;
                 return r;
