@@ -201,7 +201,7 @@ public class Main {
                 while (positionNextObject < arr.length && arr[positionNextObject] == null) {
                     positionNextObject++;
                 }
-                if(positionNextObject >= arr.length) return;
+                if(positionNextObject >= arr.length) return; //sonst error
                 arr[positionNextNull] = arr[positionNextObject];
                 arr[positionNextObject] = null;
             }
