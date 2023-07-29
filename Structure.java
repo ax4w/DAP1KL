@@ -1,8 +1,6 @@
 package Klausur;
 
 
-import java.util.Iterator;
-
 public class Structure<T> implements Iterable<T> {
 
     private Iterable<T> values;

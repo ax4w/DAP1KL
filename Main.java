@@ -143,6 +143,16 @@ public class Main {
         m( 5 );
     }
 
+    public static boolean notIn(int[] arr, Iterable<Integer> p) {
+        for(int fromArr: arr) {
+            Iterator<Integer> it = p.iterator();
+            while (it.hasNext()) {
+                if(it.next() == fromArr) return false;
+            }
+        }
+        return true;
+    }
+
 
     public static void main(String[] args) {
         IntNumbers intNumbers = new IntNumbers(new int[]{1,2,3,4,5}, new int[]{6,7,8,9,0});
