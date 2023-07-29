@@ -218,6 +218,15 @@ public class Main {
         Object[] a = new Object[]{null,null,null,null,null,null,null,null,null,null,null};
         compress(a);
         System.out.println(Arrays.toString(a));
+        Ints ints = new Ints(new int[]{1,2,3,4,5,6});
+        System.out.println(ints.count(1));
+        ints.set(0,1337);
+        ints.substitute(1337,1);
+        System.out.println(ints.count(1));
+
+        Storage storage = new Storage(new Ints[]{ new Ints(new int[]{1,2,3,5}), new Ints(new int[]{1,2,3,4})});
+        System.out.println(storage.allAround(5));
+        System.out.println(storage.contains(1));
         //IDataLambda(iData);
     }
 

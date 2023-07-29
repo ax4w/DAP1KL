@@ -272,6 +272,15 @@ public class Main {
         dll.insert(dll2,4);
         dll.showAll();
 
+        DoublyLinkedList<Integer> dll3 = new DoublyLinkedList<>();
+        dll3.add(null);
+        dll3.add(6);
+        dll3.add(null);
+        dll3.add(null);
+        System.out.println("---");
+        System.out.println(Arrays.toString(dll3.positions()));
+        System.out.println("---");
+
         BinarySearchTree<Integer> b = new BinarySearchTree<>();
 
         b.add(50);

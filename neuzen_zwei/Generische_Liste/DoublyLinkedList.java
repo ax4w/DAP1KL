@@ -52,6 +52,26 @@ public class DoublyLinkedList<T>
         return true;
     }
 
+    public int[] positions() {
+        Element f = first;
+        int c = 0;
+        while (f != null) {
+            if(f.getContent() == null) c++;
+            f = f.getSucc();
+        }
+        if(c == 0) return new int[0];
+        int[] r = new int[c];
+        int i = 0;
+        c = 0;
+        f = first;
+        while (f != null) {
+            if(f.getContent() == null) r[i++] = c;
+            c++;
+            f = f.getSucc();
+        }
+        return r;
+    }
+
     public void insert(DoublyLinkedList<T> list, T cont) {
         Element f = first;
         Element dl = list.first;
