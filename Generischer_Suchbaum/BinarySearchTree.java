@@ -90,8 +90,8 @@ public class BinarySearchTree<T extends java.lang.Comparable<T>>
     public int countNodes(int top, int bottom) {
         if(top <= bottom && !isEmpty()) {
             if(top != 0) {
-                int l  = this.rightChild.countNodes(top-1,bottom);
-                int r =this.leftChild.countNodes(top-1,bottom);
+                int l = this.rightChild.countNodes(top-1,bottom-1);
+                int r = this.leftChild.countNodes(top-1,bottom-1);
                 return l + r;
             }else {
                 int l  = this.rightChild.countNodes(top,bottom-1);
