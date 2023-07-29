@@ -211,10 +211,18 @@ public class Main {
     public static boolean hasTriple(int[] arr, int n) {
         if(n < 0 || n >= arr.length) return false;
         else{
+            //frame aus 3 elementen "Bauen" um so zu vergleichen
+            // 1. Aufruf:  1,1,2,2,2,[3,4,5] - false
+            // 2. Aufruf:  1,1,2,2,[2,3,4],5 - false
+            // 3. Aufruf:  1,1,2,[2,2,3],4,5 - false
+            // 4. Aufruf:  1,1,[2,2,2],3,4,5 - true
+            // 5. Aufruf:  1,[1,2,2],2,3,4,5 - false
+            // 6. Aufruf:  [1,1,2],2,2,3,4,5 - fale
+            // 7. Aufruf:  n < 2 -> false
             if(n < 2) return false;
             boolean a = arr[n] == arr[n-1];
             boolean b = arr[n] == arr[n-2];
-            return (a && b) || hasTriple(arr,n-1);
+            return (a && b) || hasTriple(arr,n-1); //aufruf um den 3-Elemente-Bereich um einen zu verschieben
         }
     }
 
