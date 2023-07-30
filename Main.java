@@ -248,6 +248,7 @@ public class Main {
         System.out.println("---");
         int[] i = new int[]{2};
         System.out.println(hasTriple(i, i.length - 1));
+
         //IDataLambda(iData);
     }
 
