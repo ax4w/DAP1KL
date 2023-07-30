@@ -43,10 +43,11 @@ public class Test {
             mm.m(special);
             mb.m(most);
             mb.m(normal);
+            // A B A B P B X P
         }
     }
-
     public static void main(String[] args) {
         Hi.run();
+
     }
 }
