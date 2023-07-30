@@ -283,17 +283,13 @@ public class Main {
 
         BinarySearchTree<Integer> b = new BinarySearchTree<>();
 
-        b.add(50);
-        b.add(51);
+        b.add(50); // 0
+        b.add(51); // 1
         b.add(52);
         b.add(53);
-        b.add(54);
-        b.add(49);
-        b.add(48);
-        b.add(47);
-        b.add(46);
-        b.add(45);
-
+        System.out.println("minimal");
+        System.out.println(b.minimal());
+        System.out.println("minimal");
         System.out.println(b.bigOnLevel(5));
 
         Data d = new Data(new int[]{1,2,3,4,5,6,7,8,9,10,11,12,-1});

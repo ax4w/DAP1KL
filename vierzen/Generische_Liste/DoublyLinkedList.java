@@ -44,6 +44,7 @@ public class DoublyLinkedList<T>
             while (k.hasSucc()) k = k.getSucc();
             newList.last = k;
             newList.size = n;
+            this.size -= n;
             return newList;
         } else {
             throw new RuntimeException();

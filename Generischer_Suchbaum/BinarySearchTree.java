@@ -71,6 +71,17 @@ public class BinarySearchTree<T extends java.lang.Comparable<T>>
         }
     }
 
+
+
+
+    public int leavesAtLevel(int level) {
+        if(isEmpty()) return 0;
+        if(level == 0) {
+            return isLeaf() ? 1 : 0;
+        }
+        return rightChild.leavesAtLevel(level-1) + leftChild.leavesAtLevel(level-1);
+    }
+
     public int countNodes(int level) {
         if(!this.isEmpty()) {
             if(level % 2 != 0) {
@@ -124,6 +135,17 @@ public class BinarySearchTree<T extends java.lang.Comparable<T>>
     public boolean isLeaf() 
     {
         return !isEmpty() && leftChild.isEmpty() && rightChild.isEmpty();
+    }
+
+
+    public boolean allBigger(T c) {
+        if(this.isLeaf()) return this.content.compareTo(c) > 0;
+        return this.leftChild.allBigger(c);
+    }
+
+    public boolean allSmaller(T c) {
+        if(this.isLeaf()) return this.content.compareTo(c) < 0;
+        return this.rightChild.allBigger(c);
     }
 
     public void add( T t )

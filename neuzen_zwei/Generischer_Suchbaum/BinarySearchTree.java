@@ -16,11 +16,23 @@ public class BinarySearchTree<T extends java.lang.Comparable<T>>
     //Klausur 2019_2
 
     public int minimal() {
-        if(isEmpty() || (leftChild.isEmpty() && rightChild.isEmpty())) return 0;
-        if(isLeaf()) return 1;
-        int r = 1 + rightChild.minimal();
-        int l = 1 + leftChild.minimal();
-        return Math.min(r,l);
+        if(isEmpty()) return 0;
+        if(isLeaf()) return 0;
+        int r = 0;
+        boolean rf = false;
+        if(!rightChild.isEmpty()) {
+            r = 1 + rightChild.minimal();
+            rf = true;
+        }
+        int l = 0;
+        boolean lf = false;
+        if(!leftChild.isEmpty()) {
+            lf = true;
+            l = 1 + leftChild.minimal();
+        }
+        if(rf && lf) return Math.min(l,r);
+        else if (rf && !lf) return r;
+        else return l;
     }
 
     public T bigOnLevel( int lev ) {
