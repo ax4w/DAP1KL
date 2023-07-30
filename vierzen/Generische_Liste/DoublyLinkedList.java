@@ -59,8 +59,11 @@ public class DoublyLinkedList<T>
             while (current != null) {
                 if(current.getPred().getContent().equals(current.getContent())) count++;
                 else{
-                    maximum = count;
+                    if(maximum > count) {
+                        maximum = count;
+                    }
                     count = 1;
+
                 }
                 current = current.getSucc();
             }
