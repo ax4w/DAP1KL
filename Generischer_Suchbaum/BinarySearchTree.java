@@ -87,6 +87,19 @@ public class BinarySearchTree<T extends java.lang.Comparable<T>>
         }
     }
 
+    public int sortedUpTo(int n) {
+        if(n > 0 && !isEmpty()) {
+            n = leftChild.sortedUpTo(n);
+            if(n <= 0) return 0;
+            System.out.println( content );
+            n = rightChild.sortedUpTo(n-1);
+            if(n <= 0) return 0;
+            return n;
+        }else{
+            return n;
+        }
+    }
+
     public int countNodes(int top, int bottom) {
         if(top <= bottom && !isEmpty()) {
             if(top != 0) {

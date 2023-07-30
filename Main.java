@@ -1,5 +1,7 @@
 package Klausur;
 
+import Klausur.Generischer_Suchbaum.BinarySearchTree;
+
 import java.util.Arrays;
 
 public class Main {
@@ -228,6 +230,20 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+        bst.add(100);
+        bst.add(90);
+        bst.add(80);
+        bst.add(60);
+        bst.add(70);
+        bst.add(50);
+        bst.add(40);
+
+        bst.sortedUpTo(3);
+
+        System.exit(0);
+
         IntNumbers intNumbers = new IntNumbers(new int[]{1,2,3,4,5}, new int[]{6,7,8,9,0});
         Iterator<Integer> it = intNumbers.iterator();
         //while (it.hasNext()) System.out.println(it.next());
