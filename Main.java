@@ -242,6 +242,12 @@ public class Main {
 
         bst.sortedUpTo(3);
 
+        Strcutres<Integer> str = new Strcutres<>(new Integer[]{1,2,3},new Integer[]{4,5,6});
+        Iterator<Integer> t = str.iterator();
+        while (t.hasNext()) {
+            System.out.println(t.next());
+        }
+
         System.exit(0);
 
         IntNumbers intNumbers = new IntNumbers(new int[]{1,2,3,4,5}, new int[]{6,7,8,9,0});

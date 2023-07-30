@@ -259,22 +259,6 @@ public class DoublyLinkedList<T>
         }
     }
 
-    public boolean allIn(T[] test) {
-        for(T c : test) {
-            Element curr = first;
-            boolean found = false;
-            while (curr != null) {
-                if(curr.getContent().equals(c)) {
-                    found = true;
-                    break;
-                }
-                curr = curr.getSucc();
-            }
-            if(!found) return false;
-        }
-        return true;
-    }
-
     public int strip() {
         int count = 0;
         Element c = first;
@@ -369,6 +353,22 @@ public class DoublyLinkedList<T>
             }
         }
         return 0;
+    }
+
+    public boolean allIn(T[] test) {
+        Element c = first;
+        while (c != null) {
+            boolean found = false;
+            for(T v: test) {
+                if(v.equals(c.getContent())) {
+                    found = true;
+                    break;
+                }
+            }
+            if(!found) return false;
+            c = c.getSucc();
+        }
+        return true;
     }
 
     public void exchange() {
