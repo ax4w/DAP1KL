@@ -83,8 +83,8 @@ public class DoublyLinkedList<T>
             first.getPred().connectAsSucc(first);
             first = list.first;
         }else if(f == last) {
-            last.connectAsSucc(list.first);
-            last.getSucc().connectAsPred(last);
+            last.getPred().connectAsSucc(list.first);
+            last.connectAsPred(dl);
             last = dl;
         }else{
             f.getPred().connectAsSucc(list.first);

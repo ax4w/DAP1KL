@@ -115,7 +115,7 @@ public class Main {
     }
     private static boolean doIt( int[] arr1, int[] arr2, int p ) {
         if(p < 0) return true;
-        if(arr1.length != arr2.length) return false;
+        if(arr1.length > arr2.length) return false;
         if(arr1[p] != arr2[p]) return false;
         return doIt(arr1, arr2, p - 1);
     }
@@ -178,7 +178,6 @@ public class Main {
             X val = it1.next();
             java.util.Iterator<X> it2 = data.iterator();
             while (it2.hasNext() && it2.next() != val);
-            if(it2.hasNext() && it2.next() == val) return true;
             while (it2.hasNext()) {
                 if(it2.next() == val) return true;
             }
