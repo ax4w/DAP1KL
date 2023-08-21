@@ -472,6 +472,58 @@ public class DoublyLinkedList<T>
                 succ.pred = null;
                 succ = null;
             }
+
+
+        }
+        // 1 2 3 4 5 6 7 8
+        //         ^
+        public void f(int from) {
+            //if zeugs aussen
+            Element f = first;
+            for(int i = 1; i <= from; i++) {
+                f = f.getSucc();
+            }
+            first = f;
+            f.disconnectPred();
+        }
+
+        public void into(T test, T into) {
+            Element f = first;
+            while (f != null) {
+                if(f.getContent().equals(test)) {
+                    Element k = f.getSucc();
+                    Element n = new Element(into);
+                    f.connectAsSucc(n);
+                    f.getSucc().connectAsPred(f);
+                    f.getSucc().connectAsSucc(k);
+                    if(k == null) {
+                        last = f.getSucc();
+                    }else{
+                        k.connectAsPred(f.getSucc());
+                    }
+                }
+                f = f.getSucc();
+            }
+        }
+
+        public void con(DoublyLinkedList<T> par) {
+            Element t = par.last;
+            if(t.getPred() == null) {
+                par.first = null;
+                par.last = first;
+            }else{
+                par.last = par.last.getPred();
+                par.last.disconnectSucc();
+            }
+            if(first == null) {
+                first = t;
+                last = first;
+            }else{
+                first.connectAsPred(t);
+                first.getPred().connectAsSucc(first);
+                first = first.getPred();
+                first.disconnectPred();
+            }
         }
 
         public void connectAsSucc( Element e)
