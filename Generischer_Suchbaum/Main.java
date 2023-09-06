@@ -8,7 +8,14 @@ public class Main {
         n.add(40);
         n.add(60);
         n.add(70);
-        System.out.println(n.leavesAtLevel(1));
+        System.out.println("n show before:");
+        n.show();
+        BinarySearchTree<Integer> k = n.subTree(60);
+        System.out.println("k show");
+        k.show();
+        System.out.println("n show after");
+        n.show();
+        //System.out.println(n.leavesAtLevel(1));
 
     }
 }

@@ -47,7 +47,10 @@ public class BinarySearchTree<T extends java.lang.Comparable<T>>
             if(this.content.compareTo(o) > 0) {
                 return this.leftChild.subTree(o);
             }else if(this.content.compareTo(o) == 0){
-                BinarySearchTree<T> r = this;
+                BinarySearchTree<T> r = new BinarySearchTree<>();
+                r.content = content;
+                r.leftChild = leftChild;
+                r.rightChild = rightChild;
                 this.leftChild = new BinarySearchTree<>();
                 this.rightChild = new BinarySearchTree<>();
                 this.content = null;
