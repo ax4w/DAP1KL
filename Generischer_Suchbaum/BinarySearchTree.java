@@ -51,8 +51,8 @@ public class BinarySearchTree<T extends java.lang.Comparable<T>>
                 r.content = content;
                 r.leftChild = leftChild;
                 r.rightChild = rightChild;
-                this.leftChild = new BinarySearchTree<>();
-                this.rightChild = new BinarySearchTree<>();
+                this.leftChild = null;
+                this.rightChild = null;
                 this.content = null;
                 return r;
             }else{
